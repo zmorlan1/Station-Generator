@@ -1,0 +1,747 @@
+==> New Formulae
+aerc
+aida-header
+alda
+alerter
+aliddns
+amfora
+ansible@2.9
+apt
+archey4
+argocd-autopilot
+argocd-vault-plugin
+arturo
+as-tree
+asroute
+at-spi2-atk
+at-spi2-core
+atkmm@2.28
+attr
+atuin
+autoconf@2.69
+autorestic
+avahi
+aws-console
+aws-rotate-key
+aws-vault
+baidupcs-go
+bandit
+bas55
+bash_unit
+bgpq4
+bit-git
+blaze
+bosh-cli
+box2d
+bpython
+bpytop
+brook
+buildpulse-test-reporter
+bupstash
+cadence-workflow
+cadical
+caire
+cairomm@1.14
+cargo-audit
+cargo-edit
+cargo-watch
+cfn-flip
+cfn-format
+chars
+checkov
+cherrytree
+cidr2range
+ciphey
+clarinet
+clash
+clazy
+cloudflare-wrangler
+cloudformation-guard
+clusterctl
+code-minimap
+coin3d
+commitizen
+condure
+conftest
+conmon
+counterfeiter
+cpplint
+crackpkcs
+crane
+crcany
+crispy-doom
+cruft
+crun
+csvtk
+curlie
+cvs-fast-export
+darglint
+dasel
+datalad
+ddcctl
+delve
+demumble
+detect-secrets
+device-mapper
+djl-serving
+dnsx
+doc8
+docui
+docuum
+dog
+dory
+dotenv-linter
+dotnet
+dprint
+driftctl
+dstask
+dua-cli
+duf
+easy-rsa
+efm-langserver
+ehco
+eigenpy
+elan-init
+elfutils
+enkits
+envoy
+enzyme
+epr
+erlang@23
+evernote2md
+f3d
+fabric-installer
+fanyi
+fcp
+firefoxpwa
+fizz
+fleet-cli
+flit
+flow-cli
+fluid-synth@2.1
+flux
+fnm
+font-util
+foreman
+forge
+fpart
+frum
+func-e
+fuse-overlayfs
+gallery-dl
+gcalcli
+gcc@10
+gdu
+geph4
+ghc@9
+git-hound
+git-xargs
+gitbackup
+gitlint
+gitql
+gitwatch
+giza
+glab
+glibc
+gnupg@2.2
+go-boring
+go@1.15
+gofumpt
+gojq
+googletest
+gopass-jsonapi
+gopls
+goredo
+gosec
+gost
+gpg-tui
+gping
+gradle@6
+graphqurl
+grepip
+grokj2k
+grokmirror
+gtkmm4
+gtksourceview5
+h2spec
+halide
+haruhi-dl
+haskell-language-server
+hblock
+hcl2json
+heppdt2
+hexo
+himalaya
+htmltest
+hubble
+i2c-tools
+iconsur
+imath
+indicators
+influxdb-cli
+influxdb@1
+inframap
+ipinfo-cli
+iredis
+isl@0.18
+isort
+jello
+joplin-cli
+jpeg-xl
+jql
+jrsonnet
+json5
+julia
+k3sup
+kalker
+kcgi
+keptn
+kertish-dfs
+khiva
+ki
+kickstart
+klee
+ko
+kotlin-language-server
+kube-linter
+kubecm
+kubeconform
+kubergrunt
+kubevela
+lab
+latino
+leaf
+leaf-proxy
+lefthook
+lexbor
+libaec
+libaio
+libbsd
+libcap
+libcap-ng
+libdmx
+libdrm
+libfontenc
+libfs
+libfuse
+libfuse@2
+libgccjit
+libhandy
+libice
+libmd
+libmnl
+libmobi
+libnetfilter-queue
+libnfnetlink
+libnsl
+libpciaccess
+libpinyin
+libpipeline
+libprelude
+libpthread-stubs
+librttopo
+libslirp
+libsm
+libtirpc
+libunwind
+libva
+libvdpau
+libvnc
+libx11
+libxau
+libxaw
+libxaw3d
+libxcb
+libxcomposite
+libxcursor
+libxdamage
+libxdmcp
+libxext
+libxfixes
+libxfont
+libxft
+libxi
+libxinerama
+libxkbfile
+libxml++@4
+libxml++@5
+libxmu
+libxp
+libxpm
+libxrandr
+libxrender
+libxres
+libxscrnsaver
+libxshmfence
+libxt
+libxtst
+libxv
+libxvmc
+libxxf86dga
+libxxf86vm
+licensefinder
+lima
+linux-headers@4.15
+linux-pam
+llvm@11
+lm-sensors
+logswan
+lp_solve
+lsix
+lttng-ust
+lua@5.3
+luajit-openresty
+luv
+lychee
+macchina
+macos-term-size
+magic_enum
+mailcatcher
+mapcidr
+marcli
+mariadb@10.5
+markdownlint-cli
+marp-cli
+massdns
+mathlibtools
+matplotplusplus
+matterbridge
+maturin
+mbedtls@2
+md4c
+mermaid-cli
+mesa-glu
+minisat
+moar
+mockery
+mongocli
+mongosh
+moto
+mpdecimal
+mr2
+msc-generator
+muffet
+multi-git-status
+multitime
+mx
+name-that-hash
+nbsdgames
+ncc
+ncspot
+neovim-remote
+net-tools
+newrelic-infra-agent
+nicotine-plus
+node@14
+nomino
+notcurses
+nox
+ns-3
+nuclei
+numactl
+oakc
+obfs4proxy
+ocaml-zarith
+oksh
+onedrive
+open-adventure
+openalpr
+openexr@2
+openfpgaloader
+openj9
+openjdk@8
+openliberty-jakartaee8
+openliberty-microprofile4
+openliberty-webprofile8
+openmama
+openmodelica
+opensearch
+opensearch-dashboards
+or-tools
+oras
+orgalorg
+organize-tool
+osinfo-db
+osinfo-db-tools
+osmcoastline
+ots
+overdrive
+ox
+pandoc-plot
+pari-elldata
+pari-galdata
+pari-galpol
+pari-seadata
+pari-seadata-big
+parliament
+parquet-cli
+pcalc
+pcp
+pdftilecut
+pdm
+pgxnclient
+phive
+php-cs-fixer@2
+php@7.4
+phpbrew
+pickle
+pillow
+pkger
+plow
+poppler-qt5
+postgresql@12
+principalmapper
+procps
+proj@7
+projectm
+protoc-gen-go-grpc
+psalm
+ptpython
+pure
+px
+py-spy
+pydocstyle
+pyflow
+pyoxidizer
+pyqt-3d
+pyqt-builder
+pyqt-networkauth
+pyright
+pyside@2
+python-launcher
+python-tabulate
+python-tk@3.9
+python@3.9
+pythran
+pywhat
+qodem
+qt-libiodbc
+qt-mariadb
+qt-mysql
+qt-percona-server
+qt-postgresql
+qt-unixodbc
+qthreads
+rain
+range2cidr
+rdkit
+regipy
+revive
+rhit
+richmd
+rm-improved
+rmw
+ronn
+rosa-cli
+rover
+rpg-cli
+rsc_2fa
+rtl_433
+rttr
+ruby@2.7
+rustscan
+s4cmd
+samba
+saml2aws
+scorecard
+scotch
+scry
+search-that-hash
+seqkit
+server-go
+showkey
+shtools
+simde
+singularity
+six
+slides
+slirp4netns
+smu
+snowpack
+soapyrtlsdr
+soapysdr
+spaceship
+spack
+spectra
+spot
+sql-lint
+sqlancer
+sqlbench
+sqlc
+sqlx-cli
+sqsmover
+storj-uplink
+stp
+strace
+structurizr-cli
+stylua
+svgbob
+sysstat
+systemd
+t-rec
+taskwarrior-tui
+tbb@2020
+tctl
+tendermint
+terminator
+terracognita
+terraform@0.13
+tfsec
+tgenv
+thrax
+threemux
+timg
+tm
+tmuxp
+tomcat@9
+tracker
+trec_eval
+tree-sitter
+trojan-go
+truffle
+trunk
+tssh
+tz
+umple
+universal-ctags
+utf8cpp
+util-macros
+v2ray
+vala-language-server
+vc
+vint
+virtualenv
+virtualenvwrapper
+vitess
+vivid
+vsh
+vulture
+waffle
+wangle
+wasmtime
+wayland
+wayland-protocols
+waypoint
+webhook
+webify
+wildmidi
+wllvm
+x86_64-elf-gdb
+xauth
+xbitmaps
+xcb-proto
+xcb-util
+xcb-util-cursor
+xcb-util-image
+xcb-util-keysyms
+xcb-util-renderutil
+xcb-util-wm
+xcbeautify
+xcinfo
+xcprojectlint
+xdpyinfo
+xfig
+xinput
+xkeyboardconfig
+xorgproto
+xorgrgb
+xplr
+xray
+xsel
+xterm
+xtrans
+yh
+ykdl
+youtube-dlc
+youtubedr
+yq@3
+yubikey-agent
+zellij
+zet
+zinit
+zlib-ng
+zsh-async
+zsh-vi-mode
+zsh-you-should-use
+==> Renamed Formulae
+badtouch -> authoscope
+envoy@1.17 -> envoy@1.18
+fcct -> butane
+glibmm@2.64 -> glibmm@2.66
+grakn -> typedb
+gst-validate -> gst-devtools
+gtk+4 -> gtk4
+ht-rust -> xh
+kde-extra-cmake-modules -> extra-cmake-modules
+kde-karchive -> karchive
+kde-kdoctools -> kdoctools
+kde-ki18n -> ki18n
+kde-threadweaver -> threadweaver
+libsasl2 -> cyrus-sasl
+linux-headers -> linux-headers@4.4
+minizip2 -> minizip-ng
+now-cli -> vercel-cli
+pangomm@2.42 -> pangomm@2.46
+parallelstl -> onedpl
+prest -> prestd
+prestosql -> trino
+pyqt5 -> pyqt@5
+qt5 -> qt@5
+weboob -> woob
+wxmac -> wxwidgets
+wxmac@3.0 -> wxwidgets@3.0
+==> Deleted Formulae
+atlassian-cli
+aurora-cli
+avian
+boost@1.55
+boost@1.59
+confluent-platform
+curl-openssl
+dtrx
+erlang@20
+fmsx
+geant4
+giter8
+gobby
+godep
+libinfinity
+llvm@6
+meson-internal
+mysql-connector-c++@1.1
+ori
+osquery
+pgplot
+protobuf-swift
+protobuf@3.7
+rmtrash
+scw@1
+stlviewer
+terraform-provisioner-ansible
+tj
+unp64
+unrar
+woboq_codebrowser
+xspin
+xu4
+==> Downloading https://ghcr.io/v2/homebrew/core/gdbm/manifests/1.20
+==> Downloading https://ghcr.io/v2/homebrew/core/gdbm/blobs/sha256:ea88ce09e934407b1c7dfcc1b74e2d4f1b409f8264b4475b816369a129c6cd25
+==> Downloading from https://pkg-containers.githubusercontent.com/ghcr1/blobs/sha256:ea88ce09e934407b1c7dfcc1b74e2d4f1b409f8264b4475b816369a129c6cd25?se=2021-08-19T17%3A30%3A00Z&sig=2JKANtAE7jLxx%2FUFEI7Z1P%2FmjQF2zqapb5ctVtzvQTo%3D&sp=r&spr=https&sr=b&sv=2019-12-12
+==> Downloading https://ghcr.io/v2/homebrew/core/mpdecimal/manifests/2.5.1
+==> Downloading https://ghcr.io/v2/homebrew/core/mpdecimal/blobs/sha256:255b6226cdcfaf0d40167012593e863e73dfed2884c10e7fc3eb4018e81712df
+==> Downloading from https://pkg-containers.githubusercontent.com/ghcr1/blobs/sha256:255b6226cdcfaf0d40167012593e863e73dfed2884c10e7fc3eb4018e81712df?se=2021-08-19T17%3A30%3A00Z&sig=mFzYt0BsI1IJxjobvF9Fwys%2BdJIZjcGHaACzfccNTac%3D&sp=r&spr=https&sr=b&sv=2019-12-12
+==> Downloading https://ghcr.io/v2/homebrew/core/openssl/1.1/manifests/1.1.1k
+==> Downloading https://ghcr.io/v2/homebrew/core/openssl/1.1/blobs/sha256:17d94c51ddfa8364baed5f3a754063e1ca75f807194f68d0b976619cf4e69c1a
+==> Downloading from https://pkg-containers.githubusercontent.com/ghcr1/blobs/sha256:17d94c51ddfa8364baed5f3a754063e1ca75f807194f68d0b976619cf4e69c1a?se=2021-08-19T17%3A30%3A00Z&sig=fffd%2BBkR5KsvTuKJz7Fly9ls%2Bb8bv28tlQE7Ms0f%2BYI%3D&sp=r&spr=https&sr=b&sv=2019-12-12
+==> Downloading https://ghcr.io/v2/homebrew/core/readline/manifests/8.1
+==> Downloading https://ghcr.io/v2/homebrew/core/readline/blobs/sha256:2cc3a9582e3c7e21eb3c2c8964abd33e9720fb4a9588c626d8424ff8cc9b1aed
+==> Downloading from https://pkg-containers.githubusercontent.com/ghcr1/blobs/sha256:2cc3a9582e3c7e21eb3c2c8964abd33e9720fb4a9588c626d8424ff8cc9b1aed?se=2021-08-19T17%3A30%3A00Z&sig=7r%2F9a18GhFSqB06XQWMgqkVDCrQzk0doDr07f3VXb9A%3D&sp=r&spr=https&sr=b&sv=2019-12-12
+==> Downloading https://ghcr.io/v2/homebrew/core/sqlite/manifests/3.36.0
+==> Downloading https://ghcr.io/v2/homebrew/core/sqlite/blobs/sha256:2c9c5f05c16c1fa972fc49c4b2705d7877b99640b6bb0b3908333e17f63dd71b
+==> Downloading from https://pkg-containers.githubusercontent.com/ghcr1/blobs/sha256:2c9c5f05c16c1fa972fc49c4b2705d7877b99640b6bb0b3908333e17f63dd71b?se=2021-08-19T17%3A30%3A00Z&sig=TAtUh%2Fb12lOnLsm4hKb7%2BuHhAtwYnCD6eT%2F2NjHacxM%3D&sp=r&spr=https&sr=b&sv=2019-12-12
+==> Downloading https://ghcr.io/v2/homebrew/core/xz/manifests/5.2.5
+==> Downloading https://ghcr.io/v2/homebrew/core/xz/blobs/sha256:4fbd4a9e3eb49c27e83bd125b0e76d386c0e12ae1139d4dc9e31841fb8880a35
+==> Downloading from https://pkg-containers.githubusercontent.com/ghcr1/blobs/sha256:4fbd4a9e3eb49c27e83bd125b0e76d386c0e12ae1139d4dc9e31841fb8880a35?se=2021-08-19T17%3A30%3A00Z&sig=tYwNRtfW4twh%2Fg9MafAvfPjBOWO2EjHg6oLZqId6xvQ%3D&sp=r&spr=https&sr=b&sv=2019-12-12
+==> Downloading https://ghcr.io/v2/homebrew/core/python/3.9/manifests/3.9.6
+==> Downloading https://ghcr.io/v2/homebrew/core/python/3.9/blobs/sha256:1397f8fbb9c5858aa02b0177787cb74b8eb0dfede69fc37b64e2787d76baf2fe
+==> Downloading from https://pkg-containers.githubusercontent.com/ghcr1/blobs/sha256:1397f8fbb9c5858aa02b0177787cb74b8eb0dfede69fc37b64e2787d76baf2fe?se=2021-08-19T17%3A30%3A00Z&sig=wokJ7QUh0An1nZu7dmr4x49L9WfTjuq62O5FKjllOgs%3D&sp=r&spr=https&sr=b&sv=2019-12-12
+==> Installing dependencies for python@3.9: gdbm, mpdecimal, openssl@1.1, readline, sqlite and xz
+==> Installing python@3.9 dependency: gdbm
+==> Pouring gdbm--1.20.big_sur.bottle.tar.gz
+🍺  /usr/local/Cellar/gdbm/1.20: 24 files, 825.0KB
+==> Installing python@3.9 dependency: mpdecimal
+==> Pouring mpdecimal--2.5.1.big_sur.bottle.tar.gz
+🍺  /usr/local/Cellar/mpdecimal/2.5.1: 71 files, 2.1MB
+==> Installing python@3.9 dependency: openssl@1.1
+==> Pouring openssl@1.1--1.1.1k.big_sur.bottle.tar.gz
+==> Regenerating CA certificate bundle from keychain, this may take a while...
+🍺  /usr/local/Cellar/openssl@1.1/1.1.1k: 8,071 files, 18.5MB
+==> Installing python@3.9 dependency: readline
+==> Pouring readline--8.1.big_sur.bottle.tar.gz
+🍺  /usr/local/Cellar/readline/8.1: 48 files, 1.6MB
+==> Installing python@3.9 dependency: sqlite
+==> Pouring sqlite--3.36.0.big_sur.bottle.tar.gz
+🍺  /usr/local/Cellar/sqlite/3.36.0: 11 files, 4.2MB
+==> Installing python@3.9 dependency: xz
+==> Pouring xz--5.2.5.big_sur.bottle.tar.gz
+🍺  /usr/local/Cellar/xz/5.2.5: 95 files, 1.4MB
+==> Installing python@3.9
+==> Pouring python@3.9--3.9.6.big_sur.bottle.tar.gz
+==> /usr/local/Cellar/python@3.9/3.9.6/bin/python3 -m ensurepip
+==> /usr/local/Cellar/python@3.9/3.9.6/bin/python3 -m pip install -v --no-deps --no-index --upgrade --isolated --target=/usr/local/lib/python3.9/site-packages /usr/local/Cellar/python@3.9/3.9.6/Frameworks/Python.framework/Versions/3.9/lib/python3.9/ensurepip/_bundled/setuptools-57.0.0-py3-none-any.whl /usr/local/Cellar/python@3.9/3.9.6/Frameworks/Python.framework/Versions/3.9/lib/python3.9/ensurepip/_bundled/pip-21.1.3-py3-none-any.whl /usr/local/Cellar/python@3.9/3.9.6/libexec/wheel-0.36.2-py2.py3-none-any.whl
+==> Caveats
+Python has been installed as
+  /usr/local/bin/python3
+
+Unversioned symlinks `python`, `python-config`, `pip` etc. pointing to
+`python3`, `python3-config`, `pip3` etc., respectively, have been installed into
+  /usr/local/opt/python@3.9/libexec/bin
+
+You can install Python packages with
+  pip3 install <package>
+They will install into the site-package directory
+  /usr/local/lib/python3.9/site-packages
+
+tkinter is no longer included with this formula, but it is available separately:
+  brew install python-tk@3.9
+
+See: https://docs.brew.sh/Homebrew-and-Python
+==> Summary
+🍺  /usr/local/Cellar/python@3.9/3.9.6: 3,078 files, 54.6MB
+==> `brew cleanup` has not been run in 30 days, running now...
+Removing: /Users/laurenhanley/Library/Caches/Homebrew/ant--ivy--2.5.0.tar.gz... (2.6MB)
+Removing: /Users/laurenhanley/Library/Caches/Homebrew/ant--bcel--6.4.1.tar.gz... (5.5MB)
+Removing: /Users/laurenhanley/Library/Caches/Homebrew/ant--1.10.8.tar.xz... (4.8MB)
+Removing: /Users/laurenhanley/Library/Caches/Homebrew/gettext--0.21.catalina.bottle.tar.gz... (8.5MB)
+Removing: /Users/laurenhanley/Library/Caches/Homebrew/libidn2--2.3.0.catalina.bottle.tar.gz... (233.6KB)
+Removing: /Users/laurenhanley/Library/Caches/Homebrew/libunistring--0.9.10.catalina.bottle.tar.gz... (1.4MB)
+Removing: /Users/laurenhanley/Library/Caches/Homebrew/openjdk--14.0.1.catalina.bottle.tar.gz... (191.7MB)
+Removing: /usr/local/Cellar/openssl@1.1/1.1.1g... (8,059 files, 18MB)
+Removing: /Users/laurenhanley/Library/Caches/Homebrew/openssl@1.1--1.1.1g.catalina.bottle.tar.gz... (5.3MB)
+Removing: /Users/laurenhanley/Library/Caches/Homebrew/wget--1.20.3_2.catalina.bottle.tar.gz... (1.4MB)
+Removing: /Users/laurenhanley/Library/Logs/Homebrew/ant... (99B)
+Removing: /Users/laurenhanley/Library/Logs/Homebrew/wget... (64B)
+Removing: /Users/laurenhanley/Library/Logs/Homebrew/libidn2... (64B)
+Removing: /Users/laurenhanley/Library/Logs/Homebrew/libunistring... (64B)
+Removing: /Users/laurenhanley/Library/Logs/Homebrew/openjdk... (64B)
+Removing: /Users/laurenhanley/Library/Logs/Homebrew/gettext... (64B)
+Removing: /Users/laurenhanley/Library/Logs/Homebrew/openssl@1.1... (64B)
+Pruned 1 symbolic links and 2 directories from /usr/local
+==> Upgrading 1 dependent:
+wget 1.20.3_2 -> 1.21.1
+==> Upgrading wget
+  1.20.3_2 -> 1.21.1 
+==> Downloading https://ghcr.io/v2/homebrew/core/libidn2/manifests/2.3.2
+==> Downloading https://ghcr.io/v2/homebrew/core/libidn2/blobs/sha256:d21350f576f9b9cd0512149164622671b71854da69947183bc84e09a3a257b89
+==> Downloading from https://pkg-containers.githubusercontent.com/ghcr1/blobs/sha256:d21350f576f9b9cd0512149164622671b71854da69947183bc84e09a3a257b89?se=2021-08-19T17%3A35%3A00Z&sig=jW1tv%2FftCMFYrj8SKEaBqNVpG1tbsBmHP1YuV4oj4EU%3D&sp=r&spr=https&sr=b&sv=2019-12-12
+==> Downloading https://ghcr.io/v2/homebrew/core/wget/manifests/1.21.1-1
+==> Downloading https://ghcr.io/v2/homebrew/core/wget/blobs/sha256:277577a3a30ff9bf60d0e4b819570ca356aade39a3a5973065e89b0ad4b752f3
+==> Downloading from https://pkg-containers.githubusercontent.com/ghcr1/blobs/sha256:277577a3a30ff9bf60d0e4b819570ca356aade39a3a5973065e89b0ad4b752f3?se=2021-08-19T17%3A35%3A00Z&sig=nT61sMm%2Fm4hOhr0SJwqABgdjyssdPcdoA1kVBZnSeq8%3D&sp=r&spr=https&sr=b&sv=2019-12-12
+==> Installing dependencies for wget: libidn2
+==> Installing wget dependency: libidn2
+==> Pouring libidn2--2.3.2.big_sur.bottle.tar.gz
+🍺  /usr/local/Cellar/libidn2/2.3.2: 77 files, 846.8KB
+==> Installing wget
+==> Pouring wget--1.21.1.big_sur.bottle.1.tar.gz
+🍺  /usr/local/Cellar/wget/1.21.1: 88 files, 4MB
+Removing: /usr/local/Cellar/wget/1.20.3_2... (50 files, 4.0MB)
+==> Checking for dependents of upgraded formulae...
+==> No broken dependents found!
+==> Caveats
+==> python@3.9
+Python has been installed as
+  /usr/local/bin/python3
+
+Unversioned symlinks `python`, `python-config`, `pip` etc. pointing to
+`python3`, `python3-config`, `pip3` etc., respectively, have been installed into
+  /usr/local/opt/python@3.9/libexec/bin
+
+You can install Python packages with
+  pip3 install <package>
+They will install into the site-package directory
+  /usr/local/lib/python3.9/site-packages
+
+tkinter is no longer included with this formula, but it is available separately:
+  brew install python-tk@3.9
+
+See: https://docs.brew.sh/Homebrew-and-Python
