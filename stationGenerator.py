@@ -200,6 +200,16 @@ def shift_loop():
 	user_Entry.grid_forget()
 	pick_Shift()
 
+# Funtion that allows for user to clear unused widgets for last minute update to list
+def update_Loop():
+	update_Button.grid_forget()
+	finish_Label.grid_forget()
+	create_Display_button.grid_forget()
+	sort_Options_Display.grid_forget()
+	sortLabel.grid_forget()
+	startLabel.grid_forget()
+	pick_Shift()
+
 def backButtonLoop(x):
 	
 	back_Button.grid_forget()
@@ -438,7 +448,9 @@ def createDisplays(button_click):
 		displayEmployeeLists(button_click,y,shift)
 	back_Button.grid_forget()
 	finish_Label = Label(root,text="Lobby Displays Created!")
-	finish_Label.grid(row=3,column=0,columnspan=3)	
+	finish_Label.grid(row=3,column=0,columnspan=3)
+	update_Button = Button(root,text="Last minute Update",command=update_Loop)
+	update_Button.grid(row=2,column=0)
 
 # Function that returns the instructor list for certain day
 def listReturn(x):
