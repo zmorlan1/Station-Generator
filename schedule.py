@@ -20,9 +20,9 @@ class Schedule(object):
 		self.schedule = data
 		self.weekDays = {}
 
-	def add_day(self, week_day ):
+	def add_day(self, week_day,data):
 
-		new_Day = day(week_day)
+		new_Day = day(week_day,data)
 		self.weekDays.update({len(self.weekDays)+1:new_Day})
 		
 
@@ -30,17 +30,43 @@ class Schedule(object):
 class day(object):
 
 	"""docstring for day"""
-	def __init__(self, name):
+	def __init__(self, name,data):
 		super(day, self).__init__()
 				
 		self.name = name
+		self.shifts_info = data
 		self.shifts = {}
 			
 	def add_Shift (self,time,employees):
 
 		new_shift = shift(time,employees)
 		self.shifts.update({len(self.shifts)+1:new_shift})
-		
+
+	# Creates and adds shift to day object
+	def createShifts(self):
+		shift_dic = self.splitByShift(self.shifts_info)	
+		for key in shift_dic:
+			self.add_Shift(key,shift_dic[key])
+
+	# Splits list by AM and PM shift
+	def splitByShift(self,list):
+		shifts = {"AM":"Instructors","PM":"Instructors"}
+		count = 0
+		i = 0
+		am_list = []
+		pm_list = []
+		for x in list:
+			if x[0] == "Coaches":
+				count+=1	
+			elif count == 2:
+				break
+			else:
+				i+=1
+		i+=1		
+		shifts["AM"] = list[1:i-1]
+		shifts["PM"] = list[i+1:]
+		return shifts
+	
 
 class shift(object):
 
@@ -48,13 +74,14 @@ class shift(object):
 	def __init__(self,time,employees):
 		super(shift, self).__init__()
 		self.time = time
-		self.employees = employees		
+		self.employees = createInstructorList(employees)
 
 # Function that takes data from excel file and splits into lists 
 # returns lists of instructers, and shifts for the whole week
 # WORK NEEDED: Work on redusing repetition by creating a schedule object  
-def createDailyOperations():
+def createWeeklySchedule():
 	
+	global schedule
 	#global employee_list
 
 	days_dict = {"monday":"Mon AM","tuesday":"Tue AM", "wednesday":"Wed AM", "thursday":"Thur AM",\
@@ -69,42 +96,29 @@ def createDailyOperations():
 		data = data.drop([19])
 
 	schedule = Schedule(data)
-	# Minimize items created
-	# This splits the data frame into 7 lists 
-	monday = createLists(data,days_dict['monday'])
 	for key in days_dict:
-		schedule.add_day(key)
 		days_dict[key] = createLists(data,days_dict[key])
+		schedule.add_day(key,days_dict[key])
 		print(key)
-		print(days_dict[key])
 
 	for key in schedule.weekDays:
-		print(schedule.weekDays[key].name)
-	# This splits list into Instructor and Duration for each day
-	#monInstructors,\
-	#monDuration = splitLists(monday)
+		schedule.weekDays[key].createShifts()
+		for x in schedule.weekDays[key].shifts:
+			print(schedule.weekDays[key].name)
+			print(schedule.weekDays[key].shifts[x].time)
+			for y in range(len(schedule.weekDays[key].shifts[x].employees)):
+				print(schedule.weekDays[key].shifts[x].employees[y].name)
 
-	
-	# Removes all nulls from each list
-	#monInstructors,\
-	#monDuration = removeNulls(monInstructors,monDuration)
-
-
-	#mondayAm, mondayPm = splitByShift(monInstructors)
-	#monDurationAm, monDurationPm = splitByShift(monDuration)
-
-	return print("titties...Um I mean Success!")
-	#return mondayAm, mondayPm, monDurationPm, monDurationAm,\
+	return schedule
 
 # Removes null values from lists	
 # NOTE CHANGE: duration will not be used but Average Adventure  levels
-# NOTE: Maybe after clearing nulls combine lists
 def removeNulls(list_A, list_B):
 	
 	list_A = [x for x in list_A if pandas.isnull(x) == False]
 	list_B = [x for x in list_B if pandas.isnull(x) == False]
 	results = list(zip(list_A,list_B))
-	return  splitByShift(results)
+	return  results
 
 # Takes dataframe and splits into lists by day 
 def createLists(df,dict_value):
@@ -119,43 +133,15 @@ def splitLists(list):
 	list_B = [i[1] for i in list]
 	return removeNulls(list_A, list_B)
 
-# Splits list by AM and PM shift
-# NOTE: Code could be added to schedule object
-# NOTE: incase I forget maybe instead of splitting maybe
-# 		just writing code to clear duration and coaches from list
-# NOTE: Create new function that takes the split shifts and adds 
-#		them to the day object with add_shifts
-def splitByShift(list):
-	count = 0
-	i = 0
-	am_list = []
-	pm_list = []
-	for x in list:
-		if x == "Duration" or x == "Coaches":
-			count+=1	
-		elif count == 2:
-			break
-		else:
-			i+=1
-	i+=1		
-	am_list = list[1:i]
-	pm_list = list[i+1:]
-	return am_list,pm_list
-
 # Creates a list of instructor objects 
 # NOTE CHANGE: Second attribue from hours to average_adventure_level
-def createInstructorList(shift,hours):
+def createInstructorList(coachList):
 	list = []
-	for x, y in zip(shift,hours):
-			list.append(instructor.Instructor(x,y))
+	for x in coachList:
+			list.append(instructor.Instructor(x[0],x[1]))
 	return list		
 
+createWeeklySchedule()
+print(" ")
+print(schedule.weekDays[2].shifts[1].employees[3].name)
 
-days_dict = {1:"monday",2:"tuesday", 3:"wednesday", 4:"thursday", 5:"friday", 6:"saturday",7:"sunday"}
-#mondayAm, mondayPm, monDurationPm, monDurationAm = createDailyOperations()
-createDailyOperations()
-#mondayTest = createInstructorList(mondayAm,monDurationAm)
-
-#monday = day("Monday")
-#monday.add_Shift('AM',mondayTest)
-#print(monday.shift.employees[0].name)
