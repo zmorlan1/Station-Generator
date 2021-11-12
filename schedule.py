@@ -29,37 +29,32 @@ class Schedule(object):
 	
 		global schedule
 		global days_dict
-	#global employee_list
+	   #global employee_list
 
 		days_dict = {"monday":"Mon AM","tuesday":"Tue AM", "wednesday":"Wed AM", "thursday":"Thur AM",\
 					 "friday":"Fri AM", "saturday":"Sat AM","sunday":"Sun AM"}
-#	x = "Employee Schedule.xlsx"
-#	print("file name: " + x)
-#	print(path.exists(x))
-#	with open(x) as file:
-#		
-#		data = pandas.read_excel(x, skiprows = 0, na_values=[''], usecols = "B:O")
-#		data.columns = data.columns.to_series().replace('Unnamed:\s\d+',np.nan,regex=True).ffill().values
-#		data = data.drop([19])
-#
-#	schedule = Schedule(data)
+
 		for key in days_dict:
 			days_dict[key] = createLists(self.schedule,days_dict[key])
 			self.add_day(key,days_dict[key])
-			print(key)
+	#		print(key)
 
 		for key in self.weekDays:
 			self.weekDays[key].createShifts()
-			for x in self.weekDays[key].shifts:
-				print(self.weekDays[key].name)
-				print(self.weekDays[key].shifts[x].time)
-				for y in range(len(self.weekDays[key].shifts[x].employees)):
-					print(self.weekDays[key].shifts[x].employees[y].name)
-				print()
-#	return schedule
+	#		for x in self.weekDays[key].shifts:
+	#			print(self.weekDays[key].name)
+	#			print(self.weekDays[key].shifts[x].time)
+	#			for y in range(len(self.weekDays[key].shifts[x].employees)):
+	#				print(self.weekDays[key].shifts[x].employees[y].name)
+	#			print()
 		return	
-
-
+	
+	def listReturn(self,x):
+		for key in self.weekDays:
+			for y in self.weekDays[key].shifts:
+				shift = str(self.weekDays[key].name)+" "+str(self.weekDays[key].shifts[y].time)
+				if x.lower() == shift.lower(): 
+					return self.weekDays[key].shifts[y].employees
 class day(object):
 
 	"""docstring for day"""
@@ -96,7 +91,7 @@ class day(object):
 			else:
 				i+=1
 		i+=1		
-		shifts["AM"] = list[1:i-1]
+		shifts["AM"] = list[1:i]
 		shifts["PM"] = list[i+1:]
 		return shifts
 	
@@ -108,43 +103,6 @@ class shift(object):
 		super(shift, self).__init__()
 		self.time = time
 		self.employees = createInstructorList(employees)
-
-# Function that takes data from excel file and splits into lists 
-# returns lists of instructers, and shifts for the whole week
-# WORK NEEDED: Work on redusing repetition by creating a schedule object  
-#def createWeeklySchedule():
-#	
-#	global schedule
-#	global days_dict
-#	#global employee_list
-#
-#	days_dict = {"monday":"Mon AM","tuesday":"Tue AM", "wednesday":"Wed AM", "thursday":"Thur AM",\
-#				 "friday":"Fri AM", "saturday":"Sat AM","sunday":"Sun AM"}
-#	x = "Employee Schedule.xlsx"
-#	print("file name: " + x)
-#	print(path.exists(x))
-#	with open(x) as file:
-#		
-#		data = pandas.read_excel(x, skiprows = 0, na_values=[''], usecols = "B:O")
-#		data.columns = data.columns.to_series().replace('Unnamed:\s\d+',np.nan,regex=True).ffill().values
-#		data = data.drop([19])
-#
-#	schedule = Schedule(data)
-#	for key in days_dict:
-#		days_dict[key] = createLists(data,days_dict[key])
-#		schedule.add_day(key,days_dict[key])
-#		print(key)
-
-#	for key in schedule.weekDays:
-#		schedule.weekDays[key].createShifts()
-#		for x in schedule.weekDays[key].shifts:
-#			print(schedule.weekDays[key].name)
-#			print(schedule.weekDays[key].shifts[x].time)
-#			for y in range(len(schedule.weekDays[key].shifts[x].employees)):
-#				print(schedule.weekDays[key].shifts[x].employees[y].name)
-#			print()
-#	return schedule
-#	return
 
 # Removes null values from lists	
 # NOTE CHANGE: duration will not be used but Average Adventure  levels
@@ -176,5 +134,4 @@ def createInstructorList(coachList):
 			list.append(instructor.Instructor(x[0],x[1]))
 	return list		
 
-#createWeeklySchedule()
 
