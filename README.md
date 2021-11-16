@@ -1,2 +1,4 @@
 # Station-Generator
-Manipulates data from an excel sheet into a data frame creating an object list A basic graphical user interface display allows for the user to manipulate the object lists From the interface the users can also create and save images displaying sorted object lists
+Manipulates data from an excel sheet with the use of objects. 
+The objects can then be manipulated, sorted, or deleted through a graphical user interface.
+The objects then can be copied and saved onto .png images
