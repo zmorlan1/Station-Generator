@@ -33,10 +33,9 @@ def cleanEmployeeList(list):
 
 # Function that takes data from excel file and splits into lists 
 # returns lists of instructers, and shifts for the whole week
-# WORK NEEDED: Work on redusing repetition by creating a schedule object  
 def createDailyOperations():
 	
-#global employee_list
+   #global employee_list
 	global schedule
 	global days_dict
 
@@ -80,8 +79,6 @@ def checkValue(coach,list,sub):
 			return list.index(x)
 
 # Saves all the names of employees into a list
-# NOTE: Might be added to sechedule object
-# 		or at least the employee object
 def saveName(list):
 	save_list = []
 	i = 0
@@ -116,6 +113,7 @@ def update_Loop():
 	startLabel.grid_forget()
 	pick_Shift()
 
+# Function that allows user to go back to previous widget
 def backButtonLoop(x):
 	
 	back_Button.grid_forget()
@@ -142,9 +140,13 @@ def backButtonLoop(x):
 		sort_Options_Display.grid_forget()
 		home_Page()
 
+# Function that clears widget for looping through program
 def widgetClear():
 	global sub_text
 
+	#NOTE: Drop down menu code
+	#full_coach_list.destroy()
+	#add_sub_button.grid_forget()
 	back_Button.grid_forget()
 	coach_back_Button.grid_forget()
 	shift_back_Button.grid_forget()
@@ -152,6 +154,7 @@ def widgetClear():
 	sub_text.grid_forget()
 	add_sub_button.grid_forget()
 
+# Function that restarts the widget
 def home_Page():
 	global subButton
 	global displayButton
@@ -190,16 +193,9 @@ def addSub(coach,sub,list):
 	response = messagebox.askyesno("Add another sub?", "Add Another Sub?")
 	if response == 1: 
 		widgetClear()
-		# NOTE: Drop down menu code
-		#full_coach_list.destroy()
-		#add_sub_button.grid_forget()
 		return addInstructorSub(list)
 	else:
-		# Create Method for this because it is the same in the if statement
 		widgetClear()
-		#NOTE: Drop down menu code
-		#full_coach_list.destroy()
-		#add_sub_button.grid_forget()
 		change_day_button = Button(root,text="Change Day",command=shift_loop)
 		change_day_button.grid(row=2,column=0)
 		displayButton = Button(root,text="Create Display",command=displayOptions_loop)
@@ -317,20 +313,16 @@ def createDisplays(button_click):
 	global update_Button
 
 	display_font = ImageFont.truetype('Fira_Sans/FiraSans-Regular.ttf', 100)	
-	# get rid of instructor list and just add that to the text at line 361
 	display_text = ["Monday AM","Tuesday AM","Wednesday AM","Thursday AM","Friday AM","Saturday AM","Sunday AM",\
 				   "Monday PM","Tuesday PM","Wednesday PM","Thursday PM","Friday PM","Saturday PM","Sunday PM"]
 	
 	for x in display_text:
 		display_image = Image.open("Instructor Stations.png")
 		image_editable = ImageDraw.Draw(display_image)
-		# add here 
 		image_editable.text((350,250), str(x+" Instructor List"), (237, 230, 211), font=display_font)
 		display_image.save('Station images/'+x+" Instructor List"+".png")
 	for y in display_text:
-		# get rid of listReturn since I created a method in the schedule class
 		shift = schedule.listReturn(y)
-		#print(shift[0].get_name())
 		displayEmployeeLists(button_click,y,shift)
 
 	sortLabel.grid_forget()
@@ -342,7 +334,7 @@ def createDisplays(button_click):
 	update_Button.grid(row=2,column=0)	
 
 # Function to change how Employee Lists are sorted 
-# Can be alphabetically, by Adventure level, or Random
+# Can be alphabetically, by Adventure level, no change or Random
 #NOTE could change alphabetically to by first name, last name, or reverse
 def displayOptions():
 	global sortLabel
