@@ -5,6 +5,7 @@
 
 import numpy as np
 import pandas
+import schedule
 import instructor
 import random as r 
 from tkinter import *
@@ -34,126 +35,28 @@ def cleanEmployeeList(list):
 # returns lists of instructers, and shifts for the whole week
 def createDailyOperations():
 	
-	#global employee_list
+   #global employee_list
+	global schedule
+	global days_dict
+
+	# NOTE: This Code is to create another list for a GUI drop down menu
+	#employeeData = pandas.read_excel(x, skiprows = lambda x: x in [1], na_values=[''], usecols = "Q")
+	#employee_list = createEmployeeList(employeeData)
+	#employee_list = cleanEmployeeList(employee_list)
 
 	x = "Employee Schedule.xlsx"
 	print("file name: " + x)
 	print(path.exists(x))
 	with open(x) as file:
 		
-		# NOTE: This Code is to create another list for a GUI drop down menu
-		#employeeData = pandas.read_excel(x, skiprows = lambda x: x in [1], na_values=[''], usecols = "Q")
-		#employee_list = createEmployeeList(employeeData)
-		#employee_list = cleanEmployeeList(employee_list)
-		
 		data = pandas.read_excel(x, skiprows = 0, na_values=[''], usecols = "B:O")
 		data.columns = data.columns.to_series().replace('Unnamed:\s\d+',np.nan,regex=True).ffill().values
 		data = data.drop([19])
-	sunday,monday,tuesday,wednesday,thursday,friday,saturday = createLists(data)
-		
-	monInstructors,\
-	monDuration = splitLists(monday)
-	tueInstructors,\
-	tueDuration = splitLists(tuesday)
-	wedInstructors,\
-	wedDuration = splitLists(wednesday)
-	thurInstructors,\
-	thurDuration = splitLists(thursday)
-	friInstructors,\
-	friDuration = splitLists(friday)
-	satInstructors,\
-	satDuration = splitLists(saturday)
-	sunInstructors,\
-	sunDuration = splitLists(sunday)
-	
-	monInstructors,\
-	monDuration = removeNulls(monInstructors,monDuration)
-	tueInstructors,\
-	tueDuration = removeNulls(tueInstructors,tueDuration)
-	wedInstructors,\
-	wedDuration = removeNulls(wedInstructors,wedDuration)
-	thurInstructors,\
-	thurDuration = removeNulls(thurInstructors,thurDuration)
-	friInstructors,\
-	friDuration = removeNulls(friInstructors,friDuration)
-	satInstructors,\
-	satDuration = removeNulls(satInstructors,satDuration)
-	sunInstructors,\
-	sunDuration = removeNulls(sunInstructors,sunDuration)
 
-	mondayAm, mondayPm = splitByShift(monInstructors)
-	monDurationAm, monDurationPm = splitByShift(monDuration)
-	tuesdayAm, tuesdayPm = splitByShift(tueInstructors)
-	tueDurationAm, tueDurationPm = splitByShift(tueDuration)
-	wednesdayAm, wednesdayPm = splitByShift(wedInstructors)
-	wedDurationAm, wedDurationPm = splitByShift(wedDuration)
-	thursdayAm, thursdayPm = splitByShift(thurInstructors)
-	thurDurationAm, thurDurationPm = splitByShift(thurDuration)
-	fridayAm, fridayPm = splitByShift(friInstructors)
-	friDurationAm, friDurationPm = splitByShift(friDuration)
-	saturdayAm,saturdayPm = splitByShift(satInstructors)
-	satDurationAm, satDurationPm = splitByShift(satDuration)
-	sundayAm, sundayPm = splitByShift(sunInstructors)
-	sunDurationAm, sunDurationPm = splitByShift(sunDuration)
+	schedule = schedule.Schedule(data)
+	schedule.createWeeklySchedule()
 
-	return mondayAm, mondayPm, monDurationPm, monDurationAm,\
-		   tuesdayAm, tuesdayPm, tueDurationAm, tueDurationPm,\
-		   wednesdayAm, wednesdayPm, wedDurationAm, wedDurationPm,\
-		   thursdayAm, thursdayPm, thurDurationAm, thurDurationPm,\
-		   fridayAm, fridayPm, friDurationAm, friDurationPm,\
-		   saturdayAm, saturdayPm, satDurationAm, satDurationPm,\
-		   sundayAm, sundayPm, sunDurationAm, satDurationPm 
-
-# Removes null values from lists	
-# NOTE CHANGE: duration will not be used but Average Adventure  levels
-def removeNulls(instructors, duration):
-	
-	instructors = [x for x in instructors if pandas.isnull(x) == False]
-	duration = [x for x in duration if pandas.isnull(x) == False]
-	return instructors, duration
-
-# Takes dataframe and splits into lists by day 
-def createLists(df):
-	sun = df["Sun AM"].values.tolist()
-	mon = df["Mon AM"].values.tolist()
-	tue = df["Tue AM"].values.tolist()
-	wed = df["Wed AM"].values.tolist()
-	thur = df["Thur AM"].values.tolist()
-	fri = df["Fri AM"].values.tolist()
-	sat = df["Sat AM"].values.tolist()
-	return sun,mon,tue,wed,thur,fri,sat
-
-# Splits each list value into instructors and duration
-def splitLists(list):
-	Instructors = [i[0] for i in list]
-	Duration = [i[1] for i in list]
-	return Instructors, Duration
-
-# Splits list by AM and PM shift
-def splitByShift(list):
-	count = 0
-	i = 0
-	am_list = []
-	pm_list = []
-	for x in list:
-		if x == "Duration" or x == "Coaches":
-			count+=1	
-		elif count == 2:
-			break
-		else:
-			i+=1
-	i+=1		
-	am_list = list[1:i]
-	pm_list = list[i+1:]
-	return am_list,pm_list
-
-# Creates a list of instructor objects 
-# NOTE CHANGE: Second attribue from hours to average_adventure_level
-def createInstructorList(shift,hours):
-	list = []
-	for x, y in zip(shift,hours):
-			list.append(instructor.Instructor(x,y))
-	return list		
+	return
 
 # Prints instructor list for the shift
 # NOTE NOT IN USE but could use for a view function of lists 
@@ -210,6 +113,7 @@ def update_Loop():
 	startLabel.grid_forget()
 	pick_Shift()
 
+# Function that allows user to go back to previous widget
 def backButtonLoop(x):
 	
 	back_Button.grid_forget()
@@ -236,6 +140,21 @@ def backButtonLoop(x):
 		sort_Options_Display.grid_forget()
 		home_Page()
 
+# Function that clears widget for looping through program
+def widgetClear():
+	global sub_text
+
+	#NOTE: Drop down menu code
+	#full_coach_list.destroy()
+	#add_sub_button.grid_forget()
+	back_Button.grid_forget()
+	coach_back_Button.grid_forget()
+	shift_back_Button.grid_forget()
+	user_Entry.grid_forget()
+	sub_text.grid_forget()
+	add_sub_button.grid_forget()
+
+# Function that restarts the widget
 def home_Page():
 	global subButton
 	global displayButton
@@ -252,18 +171,20 @@ def home_Page():
 	displayButton.grid(row=2,column=1)
 	
 # Function to add sub entry into list
+# NOTE: create method for repeated code in if statement 
 def addSub(coach,sub,list):
-	
+
 	global displayButton
 	global change_day_button
+	global sub_text
 
 	index = checkValue(coach,list,sub)
 	createSublist(list,index)
 	
 
 	sub_label_2.grid_forget()
-	sub = Label(root,text =sub +" is subbing for "+coach)
-	sub.grid(row=1,column=0,columnspan=3)
+	sub_text = Label(root,text =sub +" is subbing for "+coach)
+	sub_text.grid(row=1,column=0,columnspan=3)
 	
 	# NOTE: more drop down menu code
 	#index = checkValue(coach,list,sub)
@@ -271,24 +192,10 @@ def addSub(coach,sub,list):
 
 	response = messagebox.askyesno("Add another sub?", "Add Another Sub?")
 	if response == 1: 
-		back_Button.grid_forget()
-		coach_back_Button.grid_forget()
-		shift_back_Button.grid_forget()
-		user_Entry.grid_forget()
-		sub.grid_forget()
-		# NOTE: Drop down menu code
-		#full_coach_list.destroy()
-		add_sub_button.grid_forget()
+		widgetClear()
 		return addInstructorSub(list)
 	else:
-		back_Button.grid_forget()
-		coach_back_Button.grid_forget()
-		shift_back_Button.grid_forget()
-		user_Entry.grid_forget()
-		sub.grid_forget()
-		#NOTE: Drop down menu code
-		#full_coach_list.destroy()
-		add_sub_button.grid_forget()
+		widgetClear()
 		change_day_button = Button(root,text="Change Day",command=shift_loop)
 		change_day_button.grid(row=2,column=0)
 		displayButton = Button(root,text="Create Display",command=displayOptions_loop)
@@ -365,36 +272,9 @@ def openList(shift):
 	# drop the drop down menu and label
 	pick_shift_label.grid_forget()
 	drop.grid_forget()
-
-
-	if shift.get() == "Monday AM":
-		subList_mondayAm = addInstructorSub(mondayAm)
-	if shift.get() == "Monday PM":
-		subList_mondayPm = addInstructorSub(mondayPm)
-	if shift.get() == "Tuesday AM":
-		subList_tuesdayAm = addInstructorSub(tuesdayAm)
-	if shift.get() == "Tuesday PM":
-		subList_tuesdayPm = addInstructorSub(tuesdayPm)	
-	if shift.get() == "Wednesday AM":
-		subList_wednesdayAm = addInstructorSub(wednesdayAm)
-	if shift.get() == "Wednesday PM":
-		subList_wednesdayPm = addInstructorSub(wednesdayPm)
-	if shift.get() == "Thursday AM":
-		subList_thursdayAm = addInstructorSub(thursdayAm)
-	if shift.get() == "Thursday PM":
-		subList_thursdayPm = addInstructorSub(thursdayPm)
-	if shift.get() == "Friday AM":
-		subList_fridayAm = addInstructorSub(fridayAm)
-	if shift.get() == "Friday PM":
-		subList_fridayPm = addInstructorSub(fridayPm)
-	if shift.get() == "Saturday AM":
-		subList_saturdayAm = addInstructorSub(saturdayAm)
-	if shift.get() == "Saturday PM":
-		subList_saturdayPm = addInstructorSub(saturdayPm)
-	if shift.get() == "Sunday AM":
-		subList_sundayAm = addInstructorSub(sundayAm)
-	if shift.get() == "Sunday PM":
-		subList_sundayPm = addInstructorSub(sundayPm)
+	
+	emp_list = schedule.listReturn(shift.get())
+	return addInstructorSub(emp_list)
 
 # Function clears widgets and adds a drop menu and continue button
 def pick_Shift():
@@ -429,48 +309,32 @@ def pick_Shift():
 
 # Function that creates display for viewing gallery of instructor stations 
 def createDisplays(button_click):
-	
+	global finish_Label
+	global update_Button
+
 	display_font = ImageFont.truetype('Fira_Sans/FiraSans-Regular.ttf', 100)	
-	display_text = ["Monday AM Instructor List","Monday PM Instructor List","Tuesday AM Instructor List",\
-					"Tuesday PM Instructor List","Wednesday AM Instructor List","Wednesday PM Instructor List",\
-					"Thursday AM Instructor List","Thursday PM Instructor List","Friday AM Instructor List",\
-					"Friday PM Instructor List","Saturday AM Instructor List","Saturday PM Instructor List",\
-					"Sunday AM Instructor List","Sunday PM Instructor List"]
+	display_text = ["Monday AM","Tuesday AM","Wednesday AM","Thursday AM","Friday AM","Saturday AM","Sunday AM",\
+				   "Monday PM","Tuesday PM","Wednesday PM","Thursday PM","Friday PM","Saturday PM","Sunday PM"]
 	
 	for x in display_text:
 		display_image = Image.open("Instructor Stations.png")
 		image_editable = ImageDraw.Draw(display_image)
-		image_editable.text((350,250), x, (237, 230, 211), font=display_font)
-		display_image.save('Station images/'+x+".png")
+		image_editable.text((350,250), str(x+" Instructor List"), (237, 230, 211), font=display_font)
+		display_image.save('Station images/'+x+" Instructor List"+".png")
 	for y in display_text:
-		shift = listReturn(y)
-		#print(shift[0].get_name())
+		shift = schedule.listReturn(y)
 		displayEmployeeLists(button_click,y,shift)
+
+	sortLabel.grid_forget()
+	sort_Options_Display.grid_forget()
 	back_Button.grid_forget()
 	finish_Label = Label(root,text="Lobby Displays Created!")
-	finish_Label.grid(row=3,column=0,columnspan=3)
+	finish_Label.grid(row=3,column=0,columnspan=3)	
 	update_Button = Button(root,text="Last minute Update",command=update_Loop)
-	update_Button.grid(row=2,column=0)
-
-# Function that returns the instructor list for certain day
-def listReturn(x):
-	if x == "Monday AM Instructor List":return mondayAm	
-	elif x == "Monday PM Instructor List":return mondayPm
-	elif x == "Tuesday AM Instructor List":return tuesdayAm
-	elif x == "Tuesday PM Instructor List":return tuesdayPm
-	elif x == "Wednesday AM Instructor List":return wednesdayAm
-	elif x == "Wednesday PM Instructor List":return wednesdayPm
-	elif x == "Thursday AM Instructor List":return thursdayAm
-	elif x == "Thursday PM Instructor List":return thursdayPm
-	elif x == "Friday AM Instructor List":return fridayAm
-	elif x == "Friday PM Instructor List":return fridayPm
-	elif x == "Saturday AM Instructor List":return saturdayAm
-	elif x == "Saturday PM Instructor List":return saturdayPm
-	elif x == "Sunday AM Instructor List":return sundayAm
-	elif x == "Sunday PM Instructor List":return sundayPm
+	update_Button.grid(row=2,column=0)	
 
 # Function to change how Employee Lists are sorted 
-# Can be alphabetically, by Adventure level, or Random
+# Can be alphabetically, by Adventure level, no change or Random
 #NOTE could change alphabetically to by first name, last name, or reverse
 def displayOptions():
 	global sortLabel
@@ -481,11 +345,11 @@ def displayOptions():
 	displayButton.grid_forget()
 	subButton.grid_forget()
 
-	sortLabel = Label(root, text="Sort Alphabetically, by Adventure Level or Randomly")
+	sortLabel = Label(root, text="Sort Alphabetically, by Adventure Level,or Randomly")
 	sortLabel.grid(row=1,column=0,columnspan=3)
 
 
-	sort_Options = ["Alphabetically","Adventure Level","Random"]
+	sort_Options = ["No Change","Alphabetically","Adventure Level","Random"]
 	clicked = StringVar()
 	clicked.set(sort_Options[0])
 
@@ -507,7 +371,7 @@ def displayEmployeeLists(clicked,x,list):
 	if clicked.get() == "Adventrure Level":shift.sort(key=lambda x:x.duration,reverse=False)
 	if clicked.get() == "Random":r.shuffle(shift)
 	display_font = ImageFont.truetype('Fira_Sans/FiraSans-Regular.ttf', 75)
-	display_image = Image.open('Station images/'+x+".png")
+	display_image = Image.open('Station images/'+x+" Instructor List"+".png")
 	image_editable = ImageDraw.Draw(display_image)
 	coorX = 400
 	coorY = 500
@@ -521,36 +385,15 @@ def displayEmployeeLists(clicked,x,list):
 		else:
 			image_editable.text((coorX,coorY), z, (237, 230, 211), font=display_font)
 		coorY+=100
-	display_image.save('Station images/'+x+".png")
+	display_image.save('Station images/'+x+" Instructor List"+".png")
 
-mondayAm, mondayPm, monDurationPm, monDurationAm,\
-tuesdayAm, tuesdayPm, tueDurationAm, tueDurationPm,\
-wednesdayAm, wednesdayPm, wedDurationAm, wedDurationPm,\
-thursdayAm, thursdayPm, thurDurationAm, thurDurationPm,\
-fridayAm, fridayPm, friDurationAm, friDurationPm,\
-saturdayAm, saturdayPm, satDurationAm, satDurationPm,\
-sundayAm, sundayPm, sunDurationAm, sunDurationPm = createDailyOperations()
-
-mondayAm = createInstructorList(mondayAm,monDurationAm)
-mondayPm = createInstructorList(mondayPm,monDurationPm)
-tuesdayAm = createInstructorList(tuesdayAm,tueDurationAm)
-tuesdayPm = createInstructorList(tuesdayPm,tueDurationPm)
-wednesdayAm = createInstructorList(wednesdayAm,wedDurationAm) 
-wednesdayPm = createInstructorList(wednesdayPm,wedDurationPm)
-thursdayAm = createInstructorList(thursdayAm,thurDurationAm)
-thursdayPm = createInstructorList(thursdayPm,thurDurationPm)
-fridayAm = createInstructorList(fridayAm,friDurationAm)
-fridayPm = createInstructorList(fridayPm,friDurationPm)
-saturdayAm = createInstructorList(saturdayAm,satDurationAm)
-saturdayPm = createInstructorList(saturdayPm,satDurationPm)
-sundayAm = createInstructorList(sundayAm,sunDurationAm)
-sundayPm = createInstructorList(sundayPm,sunDurationPm)
+createDailyOperations()
 
 root = Tk()
 root.title("Station Generator")
 #NOTE: Attempt to add an ico image to corner or program
 #root.iconbitmap('Dolphin.ico')
-root.geometry("380x380")
+root.geometry("385x385")
 
 
 global displayButton
