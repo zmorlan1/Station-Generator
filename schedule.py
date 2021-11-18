@@ -1,15 +1,7 @@
 # Author Zach Morlan
 # Creates Object to store weekly  employee schedule
 import instructor
-import schedule
-import numpy as np
 import pandas
-import instructor
-import random as r 
-from tkinter import *
-from tkinter import messagebox
-from PIL import Image, ImageFont, ImageDraw, ImageTk
-from os import path
 
 
 class Schedule(object):
@@ -25,28 +17,19 @@ class Schedule(object):
 
 		new_Day = day(week_day,data)
 		self.weekDays.update({len(self.weekDays)+1:new_Day})
-	def createWeeklySchedule(self):
+	def createWeeklySchedule(self,data_dict):
 	
 		global schedule
 		global days_dict
 	   #global employee_list
-
-		days_dict = {"monday":"Mon AM","tuesday":"Tue AM", "wednesday":"Wed AM", "thursday":"Thur AM",\
-					 "friday":"Fri AM", "saturday":"Sat AM","sunday":"Sun AM"}
-
-		for key in days_dict:
-			days_dict[key] = createLists(self.schedule,days_dict[key])
-			self.add_day(key,days_dict[key])
-	#		print(key)
+	
+		for key in data_dict:
+			data_dict[key] = createLists(self.schedule,data_dict[key])
+			self.add_day(key,data_dict[key])
 
 		for key in self.weekDays:
 			self.weekDays[key].createShifts()
-	#		for x in self.weekDays[key].shifts:
-	#			print(self.weekDays[key].name)
-	#			print(self.weekDays[key].shifts[x].time)
-	#			for y in range(len(self.weekDays[key].shifts[x].employees)):
-	#				print(self.weekDays[key].shifts[x].employees[y].name)
-	#			print()
+
 		return	
 	
 	def listReturn(self,x):
@@ -105,7 +88,7 @@ class shift(object):
 		self.employees = createInstructorList(employees)
 
 # Removes null values from lists	
-# NOTE CHANGE: duration will not be used but Average Adventure  levels
+# NOTE CHANGE: duration will not be used but Average Adventure levels
 def removeNulls(list_A, list_B):
 	
 	list_A = [x for x in list_A if pandas.isnull(x) == False]
